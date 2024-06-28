@@ -26,7 +26,6 @@ public class GoodServlet extends HttpServlet {
         String categoryName = parts[1];
         String command = parts.length > 2 ? parts[2] : "";
 
-        System.out.println(command);
         if (command.equals("delete")) {
             doDelete(req, res);
         }
@@ -36,8 +35,9 @@ public class GoodServlet extends HttpServlet {
             req.getRequestDispatcher("/WEB-INF/pages/updateGood.jsp").forward(req, res);
         }
         else if (command.equals("add")){
-            System.out.println("AddGoodServlet doGet");
+            System.out.println("GoodServlet doGet");
             req.setAttribute("category", categoryName);
+            System.out.println(categoryName);
             req.getRequestDispatcher("/WEB-INF/pages/addGood.jsp").forward(req, res);
         }
         else if(command.equals("lookup")){
@@ -58,12 +58,15 @@ public class GoodServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
         System.out.println("GoodServlet doPost");
+        System.out.println(req.getParameter("category"));
         String method = req.getParameter("_method");
+        System.out.println("What");
+
+
         if (method != null && method.equals("PUT")) {
             doPut(req, res);
         } else {
             GoodDao goodDao = new GoodDao();
-            System.out.println(req.getParameter("category"));
             goodDao.create(new Good(req.getParameter("name"), req.getParameter("description"), req.getParameter("producer"), Integer.parseInt(req.getParameter("quantity")), Double.parseDouble(req.getParameter("price")), req.getParameter("category")));
             res.sendRedirect("/store/category/goods/" + req.getParameter("category"));
         }

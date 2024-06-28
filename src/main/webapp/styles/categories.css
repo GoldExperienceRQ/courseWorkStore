@@ -1,0 +1,48 @@
+body{
+    color: #02343F;
+}
+.home-link{
+    text-decoration: none;
+    background-color: #02343F;
+    color: #F0EDCC;
+    padding: 5px 8px;
+    border-radius: 3px;
+}
+.header{
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.item{
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.buttons a{
+    text-decoration: none;
+    border-radius: 3px;
+    margin-right: 20px;
+    padding: 5px 8px;
+    background-color: #02343F;
+    color: #F0EDCC;
+}
+
+.goods-link{
+    max-width: fit-content;
+    text-decoration: none;
+    border-radius: 3px;
+    margin-right: 20px;
+    padding: 5px 8px;
+    background-color: #02343F;
+    color: #F0EDCC;
+
+}
+.add-btn{
+    text-decoration: none;
+    border-radius: 3px;
+    margin-right: 20px;
+    padding: 5px 8px;
+    background-color: #02343F;
+    color: #F0EDCC;
+    width: 200px;
+}

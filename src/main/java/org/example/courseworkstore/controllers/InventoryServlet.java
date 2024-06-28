@@ -26,7 +26,15 @@ public class InventoryServlet extends HttpServlet {
         GoodDao goodDao = new GoodDao();
         String operation = req.getParameter("operation");
         Good good = goodDao.read(req.getParameter("good"));
-        int quantity = Integer.parseInt(req.getParameter("quantity"));
+        String quantityString = req.getParameter("quantity");
+
+        int quantity = 0;
+
+        if(!quantityString.isEmpty()){
+            quantity = Integer.parseInt(quantityString);
+        }
+
+        System.out.println(quantity);
         int newQuantity = 0;
         if (operation.equals("supply")){
             newQuantity = good.getQuantity() + quantity;
@@ -35,7 +43,7 @@ public class InventoryServlet extends HttpServlet {
             newQuantity = good.getQuantity() - quantity;
         }
 
-        if(newQuantity > 0 && newQuantity <= 1000000){
+        if((newQuantity >= 0 && newQuantity <= 1000000)){
             goodDao.patchQuantity(good.getName(), newQuantity);
             res.sendRedirect("/store/inventory");
         }

@@ -14,28 +14,32 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/index.css">
 </head>
 <body>
-<a href="${pageContext.request.contextPath}/store/category/all">Back to categories</a>
-<h1>Goods in Category ${category}</h1>
-<br/>
-<form action="${pageContext.request.contextPath}/store/category/goods/${category}/lookup" method="GET">
+<a class="category-link" href="${pageContext.request.contextPath}/store/category/all">Back to categories</a>
+<h1 class="header">Goods in Category ${category}</h1>
+<form class="search" action="${pageContext.request.contextPath}/store/category/goods/${category}/lookup" method="GET">
     <label for="search">Search</label>
     <input type="text" id="search" name="search" placeholder="Search a good">
     <button type="submit">Search</button>
 </form>
 
-<br/>
-<br>
 <c:set var="categoryWorth" value="${0}" scope="page"/>
 <c:forEach var="good" items="${goods}">
     <c:set var="categoryWorth" value="${categoryWorth + good.price*good.quantity}" scope="page"/>
-    <p id="${good.name}">Name: ${good.name}, Category: ${good.category}, Description: ${good.description}, Producer: ${good.producer}, Quantity: ${good.quantity}, Price: ${good.price}</p>
+    <div class="item">
+        <p>Name: ${good.name}</p>
+        <p>Category: ${good.category}</p>
+        <p>Description: ${good.description}</p>
+        <p>Producer: ${good.producer}</p>
+        <p>Quantity: ${good.quantity}</p>
+        <p>Price: ${good.price}</p>
 
-    <a href="${pageContext.request.contextPath}/store/category/goods/${category}/update?good=${good.name}">Update</a>
-    <a href="${pageContext.request.contextPath}/store/category/goods/${category}/delete?good=${good.name}">Delete</a>
+        <a class="btn" href="${pageContext.request.contextPath}/store/category/goods/${category}/update?good=${good.name}">Update</a>
+        <a class="btn" href="${pageContext.request.contextPath}/store/category/goods/${category}/delete?good=${good.name}">Delete</a>
+    </div>
 </c:forEach>
-<br>
-<p>Total worth of this category: ${categoryWorth}</p>
-<a href="${pageContext.request.contextPath}/store/category/goods/${category}/add">Add a good</a>
+
+<p class="total">Total worth of this category: ${categoryWorth}</p>
+<a class="add-btn" href="${pageContext.request.contextPath}/store/category/goods/${category}/add">Add a good</a>
 
 </body>
 </html>

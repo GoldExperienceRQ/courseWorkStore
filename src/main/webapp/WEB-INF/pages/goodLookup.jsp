@@ -10,26 +10,30 @@
 <html>
 <head>
     <title>Good lookup</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/goodLookup.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/goods.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/index.css">
 </head>
 <body>
-<a href="${pageContext.request.contextPath}/store/category/goods/${category}">Back to category</a>
-<br/>
-<form action="${pageContext.request.contextPath}/store/category/goods/${category}/lookup" method="GET">
+<a class="category-link"  href="${pageContext.request.contextPath}/store/category/goods/${category}">Back to category</a>
+
+<form class="search" action="${pageContext.request.contextPath}/store/category/goods/${category}/lookup" method="GET">
     <label for="search">Search</label>
     <input type="text" id="search" name="search" placeholder="Search a good">
     <button type="submit">Search</button>
 </form>
-
-<h1>Search result by ${searchValue}</h1>
-<br/>
+<h1 class="header">Search result by ${searchValue}</h1>
 <c:forEach var="good" items="${goods}">
-    <p id="${good.name}">Name: ${good.name}, Category: ${good.category}, Description: ${good.description},
-        Producer: ${good.producer}, Quantity: ${good.quantity}, Price: ${good.price}</p>
+    <div class="item">
+        <p>Name: ${good.name}</p>
+        <p>Category: ${good.category}</p>
+        <p>Description: ${good.description}</p>
+        <p>Producer: ${good.producer}</p>
+        <p>Quantity: ${good.quantity}</p>
+        <p>Price: ${good.price}</p>
 
-    <a href="${pageContext.request.contextPath}/store/category/goods/${category}/update?good=${good.name}">Update</a>
-    <a href="${pageContext.request.contextPath}/store/category/goods/${category}/delete?good=${good.name}">Delete</a>
+        <a class="btn" href="${pageContext.request.contextPath}/store/category/goods/${category}/update?good=${good.name}">Update</a>
+        <a class="btn" href="${pageContext.request.contextPath}/store/category/goods/${category}/delete?good=${good.name}">Delete</a>
+    </div>
 </c:forEach>
 </body>
 </html>

@@ -14,28 +14,37 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/index.css">
 </head>
 <body>
-<h1>Supply/Write off</h1>
+
+<a class="home-link" href="${pageContext.request.contextPath}/store">Back to Store</a>
+
+<h1 class="header">Supply/Write off</h1>
 <br/>
-<a href="${pageContext.request.contextPath}/store">Back to Store</a>
 
 <form action="${pageContext.request.contextPath}/store/inventory" method="POST">
-    <label for="good">Good</label>
-    <select id="good" name="good">
-        <c:forEach var="good" items="${goods}">
-            <option value="${good.name}">${good.name}</option>
-        </c:forEach>
-    </select>
 
-    <label for="operation">Operation</label>
-    <select id="operation" name="operation">
-        <option value="supply">Supply</option>
-        <option value="write-off">Write off</option>
-    </select>
+    <div class="item">
+        <label for="good">Good</label>
+        <select id="good" name="good">
+            <c:forEach var="good" items="${goods}">
+                <option value="${good.name}">${good.name}</option>
+            </c:forEach>
+        </select>
+    </div>
 
-    <label for="quantity">Quantity</label>
-    <input type="number" id="quantity" name="quantity" placeholder="Quantity"/>
+    <div class="item">
+        <label for="operation">Operation</label>
+        <select id="operation" name="operation">
+            <option value="supply">Supply</option>
+            <option value="write-off">Write off</option>
+        </select>
+    </div>
 
-    <button type="submit">Change</button>
+    <div class="item">
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="quantity" min="0" placeholder="Quantity"/>
+    </div>
+
+    <button type="submit" class="change-btn">Change</button>
 </form>
 </body>
 </html>

@@ -1,0 +1,35 @@
+
+.header {
+    flex-grow: 1;
+    text-align: center;
+    color: #02343F;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 80px 80px 80px;
+}
+.auth{
+    flex-basis: 20px;
+    text-decoration: none;
+    padding: 9px 18px;
+    background-color: #02343F;
+    color: #F0EDCC;
+    border-radius: 3px;
+}
+.menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px
+}
+
+.menu-item{
+    text-decoration: none;
+    background-color: #02343F;
+    color: #F0EDCC;
+    padding: 20px 18px;
+    border-radius: 3px ;
+}

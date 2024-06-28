@@ -13,18 +13,23 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/index.css">
 </head>
 <body>
-<h1>Login</h1>
+<h1 class="header">Login</h1>
 
 <form action="${pageContext.request.contextPath}/store/login" method="post">
 
-    <p>${error}</p>
 
-    <label for="username">Login Name</label>
-    <input type="text" id="username" name="username" placeholder="Username" />
+    <div class="form-element">
+        <label for="username">Login Name</label>
+        <input type="text" id="username" name="username" placeholder="Username"/>
+    </div>
 
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" placeholder="Password"/>
-    <button type="submit" id="login-button">Login</button>
+    <div class="form-element">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Password"/>
+    </div>
+    <p class="error-msg">${error}</p>
+
+    <button type="submit" id="login-btn">Login</button>
 </form>
 </body>
 </html>

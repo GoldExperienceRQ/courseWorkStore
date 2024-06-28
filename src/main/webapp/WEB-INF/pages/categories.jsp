@@ -14,20 +14,24 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/index.css">
 </head>
 <body>
-<h1>Here you can see all categories</h1>
-<a href="${pageContext.request.contextPath}/store">Go home</a>
-<br/>
+<a class="home-link" href="${pageContext.request.contextPath}/store">Go home</a>
+<h1 class="header">Here you can see all categories</h1>
+
+<c:set var="counter" value="${1}" scope="page"/>
 <c:forEach items="${categories}" var="category">
-    <div class="category-data">
+    <div class="item">
+        <p><b>Category ${counter}</b></p>
         <p id="${category.name}">${category.name}, ${category.description}</p>
+    <div class="buttons">
         <a href="${pageContext.request.contextPath}/store/category/update?category=${category.name}">Update</a>
         <a href="${pageContext.request.contextPath}/store/category/delete?category=${category.name}">Delete</a>
-        <br/>
-        <a href="${pageContext.request.contextPath}/store/category/goods/${category.name}">See goods in this category</a>
+    </div>
+        <a class="goods-link" href="${pageContext.request.contextPath}/store/category/goods/${category.name}">See goods in this category</a>
+        <c:set var="counter" value="${counter + 1}" scope="page"/>
     </div>
 </c:forEach>
 <br/>
-<a href="${pageContext.request.contextPath}/store/category/add">Add Category</a>
+<a class="add-btn" href="${pageContext.request.contextPath}/store/category/add">Add Category</a>
 
 </body>
 </html>

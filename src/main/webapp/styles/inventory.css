@@ -1,0 +1,60 @@
+body{
+    color: #02343F;
+}
+
+.home-link{
+    text-decoration: none;
+    background-color: #02343F;
+    color: #F0EDCC;
+    padding: 5px 8px;
+    border-radius: 3px;
+}
+.header{
+    margin-top: 40px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 400px;
+
+}
+.item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    label{
+        flex: 1;
+        text-align: left;
+    }
+    select{
+        flex: 1;
+        text-align: center;
+        outline: none;
+        font-size: 16px;
+        padding: 3px 5px;
+        border-radius: 3px;
+        border: 1px #02343F solid;
+    }
+    input{
+        flex: 1;
+        text-align: center;
+        outline: none;
+        font-size: 16px;
+        padding: 3px 5px;
+        border-radius: 3px;
+        border: 1px #02343F solid;
+    }
+}
+.change-btn{
+    flex-basis: 30px;
+    text-align: center;
+    width: 60px;
+    padding: 3px 5px;
+    color: #F0EDCC;
+    background-color: #02343F;
+    cursor: pointer;
+}

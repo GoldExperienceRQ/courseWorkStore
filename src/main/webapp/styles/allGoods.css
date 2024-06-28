@@ -1,0 +1,22 @@
+body{
+    color: #02343F;
+}
+
+.header{
+    margin-top: 40px;
+}
+.home-link{
+    text-decoration: none;
+    padding: 3px 5px;
+    background-color: #02343F;
+    color: #F0EDCC;
+    border-radius: 3px;
+    margin-bottom: 40px;
+}
+
+.item{
+    margin-bottom: 30px;
+    p{
+        margin-bottom: 10px;
+    }
+}

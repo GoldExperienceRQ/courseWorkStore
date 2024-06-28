@@ -1,0 +1,42 @@
+.header{
+    margin-bottom: 40px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+ max-width: 400px;
+}
+
+.form-element{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    label{
+        flex: 1;
+        text-align: left;
+    }
+    input{
+        flex: 1;
+        text-align: center;
+        outline: none;
+        font-size: 16px;
+        padding: 3px 5px;
+        border-radius: 3px;
+    }
+}
+#login-btn{
+    flex-basis: 30px;
+    text-align: center;
+    width: 60px;
+    padding: 3px 5px;
+    color: #F0EDCC;
+    background-color: #02343F;
+    cursor: pointer;
+}
+.error-msg{
+    margin-bottom: 20px;
+}

@@ -10,22 +10,28 @@
 <html>
 <head>
     <title>ALl goods</title>
-   <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/allGoods.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/allGoods.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/index.css">
 </head>
 <body>
-<a href="${pageContext.request.contextPath}/store">Go home</a>
-<h1>All goods</h1>
+<a class="home-link" href="${pageContext.request.contextPath}/store">Go home</a>
+<h1 class="header">All goods</h1>
 <br/>
 
-    <c:forEach var="good" items="${goods}">
-        <div>
-            <p id="${good.name}">Name: ${good.name}, Category: ${good.category}, Price: ${good.price}, Producer: ${good.producer},
-                Quantity: ${good.quantity}, Description: ${good.description}
-            </p>
-            <p>Total worth of ${good.name} is ${good.price*good.quantity}</p>
-        </div>
-    </c:forEach>
+<c:set value="${1}" var="counter" scope="page"/>
+<c:forEach var="good" items="${goods}">
+    <div class="item">
+        <p><b>Item ${counter}</b></p>
+        <p>Name: ${good.name}</p>
+        <p>Category: ${good.category}</p>
+        <p>Price: ${good.price}</p>
+        <p>Producer: ${good.producer}</p>
+        <p>Quantity: ${good.quantity}</p>
+        <p>Description: ${good.description}</p>
+        <p>Total worth of ${good.name} is ${good.price*good.quantity}</p>
+    </div>
+    <c:set var="counter" value="${counter + 1}" scope="page"/>
+</c:forEach>
 
 </body>
 </html>
